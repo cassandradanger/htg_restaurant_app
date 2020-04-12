@@ -19,6 +19,20 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/mine', (req, res) => {
+    console.log('check', req.user.id);
+    let sqlQuery = `SELECT * from "restaurant" WHERE "user_id" = ${req.user.id}`;
+    pool.query(sqlQuery)
+    .then((result) => {
+        console.log("hello", result);
+        res.send(result.rows);
+    })
+    .catch((error) => {
+        console.log('error', error);
+        res.sendStatus(500);
+    })
+});
+
 router.get('/:id', (req, res) => {
     console.log('req.boyd', req.params);
     let sqlQuery = `SELECT * from "restaurant" WHERE "id" = '${req.params.id}'`;

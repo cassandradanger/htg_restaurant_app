@@ -23,9 +23,21 @@ function* fetchChosenRestaurant(action){
   }
 }
 
+function* fetchMyRestaurants() {
+  try {
+    const response = yield axios.get('/api/restaurant/mine');
+    console.log(response);
+
+    yield put({ type: 'SET_MY_RESTAURANTS', payload: response.data });
+  } catch (error) {
+    console.log('Restaurants get request failed', error);
+  }
+}
+
 function* restaurantSaga() {
   yield takeLatest('FETCH_RESTAURANTS', fetchRestaurants);
   yield takeLatest('FETCH_CHOSEN_RESTAURANT', fetchChosenRestaurant);
+  yield takeLatest('FETCH_MY_RESTAURANTS', fetchMyRestaurants);
 }
 
 export default restaurantSaga;
