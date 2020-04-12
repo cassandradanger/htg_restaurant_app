@@ -17,10 +17,14 @@ CREATE TABLE "restaurant" (
     "address" VARCHAR,
     "hours" VARCHAR,
     "delivery" BOOLEAN,
+    "pickUp" BOOLEAN,
     "link" VARCHAR,
     "description" VARCHAR (8000),
     "picture" VARCHAR,
-    "welcomeNote" VARCHAR
+    "welcomeNote" VARCHAR,
+    "city" VARCHAR,
+    "state" VARCHAR,
+    "zipcode" INTEGER
 );
 
 CREATE TABLE "menu" (
@@ -60,3 +64,6 @@ CREATE TABLE "restaurant_tags" (
 
 INSERT INTO "restaurant" ("user_id", "name", "phone")
 VALUES(UserIdHere, 'Pizza Luce', '612-222-2222'), (UserIdHere, 'Galaxy Pizza', '612-222-2222'), (UserIdHere, 'Johns Pizza Cafe', '612-222-2222'),
+
+INSERT INTO "restaurant" ("user_id", "name", "phone")
+VALUES(UserIdHere, 'Smashburger', '612-222-2222'), (UserIdHere, 'Burger Jones', '612-222-2222'), (UserIdHere, 'The Burger Place', '612-222-2222');
