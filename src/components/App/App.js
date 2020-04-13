@@ -17,6 +17,8 @@ import Footer from '../Footer/Footer';
 import RestaurantsList from '../RestaurantsList/RestaurantsList';
 import RestaurantAdminPage from '../RestaurantAdminPage/RestaurantAdminPage';
 import RestaurantView from '../RestaurantView/RestaurantView';
+import Geolocation from '../geolocation/geolocation'
+
 
 import './App.css';
 
@@ -31,6 +33,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
+          <Geolocation />
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route
