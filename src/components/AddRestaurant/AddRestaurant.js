@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 class AddRestaurant extends Component {
   state = {
     name: '',
-    phoneNumber: '',
+    phone: '',
     address: '',
     city: '',
     state: '',
@@ -16,17 +16,18 @@ class AddRestaurant extends Component {
     description: '',
     picture: '',
     delivery: false,
+    pickUp: false,
   };
 
   addNewRestaurant = (event) => {
     event.preventDefault();
-
-    if (this.state.username && this.state.password) {
+    console.log(this.props.state)
+    if (this.props.state.user.id) {
       this.props.dispatch({
         type: 'ADD_NEW_RESTAURANT',
         payload: {
           name: this.state.name,
-          phoneNumber: this.state.phoneNumber,
+          phone: this.state.phone,
           address: this.state.address,
           city: this.state.city,
           state: this.state.state,
@@ -81,9 +82,9 @@ class AddRestaurant extends Component {
               Phone Number:
               <input
                 type="text"
-                name="phoneNumber"
-                value={this.state.phoneNumber}
-                onChange={this.handleInputChangeFor('phoneNumber')}
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleInputChangeFor('phone')}
               />
             </label>
           </div>
