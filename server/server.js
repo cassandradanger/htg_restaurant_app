@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 
 const userRouter = require('./routes/user.router');
 const restaurantRouter = require('./routes/restaurant.router');
+const menuRouter = require('./routes/menu.router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +22,7 @@ app.use(passport.session());
 
 app.use('/api/user', userRouter);
 app.use('/api/restaurant', restaurantRouter);
+app.use('/api/menu', menuRouter);
 
 app.use(express.static('build'));
 
