@@ -8,7 +8,6 @@ import {
 
 import {connect} from 'react-redux';
 
-import UserPage from '../UserPage/UserPage';
 // protected routes are only for logged in users
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -48,7 +47,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={RestaurantAdminPage}
             />
             
             <ProtectedRoute

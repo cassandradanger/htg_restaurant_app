@@ -13,7 +13,7 @@ CREATE TABLE "restaurant" (
     "user_id" INT REFERENCES "user",
     "name" VARCHAR (200) NOT NULL,
     "type" VARCHAR (200) NOT NULL,
-    "phone" VARCHAR (20) NOT NULL,
+    "phone" VARCHAR (20),
     "address" VARCHAR,
     "hours" VARCHAR,
     "delivery" BOOLEAN,

@@ -38,8 +38,9 @@ class AddRestaurant extends Component {
           description: this.state.description,
           picture: this.state.picture,
           delivery: this.state.delivery,
-        },
-      });
+        }
+      })
+      this.props.history.push('/restaurantAdmin');
     } else {
       this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
     }
