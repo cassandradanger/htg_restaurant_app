@@ -19,6 +19,7 @@ import RestaurantAdminPage from '../RestaurantAdminPage/RestaurantAdminPage';
 import RestaurantView from '../RestaurantView/RestaurantView';
 import AddRestaurant from '../AddRestaurant/AddRestaurant';
 import MenuView from '../MenuView';
+import AddMenu from '../AddMenu/AddMenu';
 
 import './App.css';
 
@@ -62,6 +63,12 @@ class App extends Component {
               exact
               path="/addRestaurant"
               component={AddRestaurant}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/addMenu"
+              component={AddMenu}
             />
 
             <Route

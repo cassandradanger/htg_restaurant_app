@@ -9,10 +9,16 @@ class RestaurantAdminPage extends Component {
     this.props.dispatch({type: 'FETCH_MY_RESTAURANTS'});
   }
 
-  chooseRestaurant = (event, restaurant) => {
-    console.log(restaurant);
-    this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: restaurant});
-    this.props.history.push('/restaurantView')
+  chooseRestaurant = (event, restaurant, admin) => {
+    if(admin){
+      console.log(restaurant);
+      this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: restaurant});
+      this.props.history.push('/AddMenu')
+    } else {
+      console.log(restaurant);
+      this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: restaurant});
+      this.props.history.push('/restaurantView')
+    }
   }
 
   addNewRestaurant = () => {
@@ -30,7 +36,7 @@ class RestaurantAdminPage extends Component {
           <h2>Your restaurants:</h2>
             {this.props.state.restaurant ?
               this.props.state.restaurant.map((restaurant) => {
-                return <Button chooseRestaurant={this.chooseRestaurant} key={restaurant.id} restaurant={restaurant}></Button>
+                return <Button admin="true" chooseRestaurant={this.chooseRestaurant} key={restaurant.id} restaurant={restaurant}></Button>
               })
               :
               <p>no restaurants</p>

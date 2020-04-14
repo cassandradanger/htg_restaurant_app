@@ -14,7 +14,7 @@ CREATE TABLE "restaurant"
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "user",
     "name" VARCHAR (200) NOT NULL,
-    "type" VARCHAR (200) NOT NULL,
+    "type" VARCHAR (200),
     "phone" VARCHAR (20),
     "address" VARCHAR,
     "hours" VARCHAR,
@@ -76,16 +76,9 @@ CREATE TABLE "restaurant_tags"
 
 -- After creating a user, you can run this after adding the user_id to it
 
-<<<<<<< HEAD
 INSERT INTO "restaurant" ("user_id", "name", "phone")
 VALUES(UserIdHere, 'Pizza Luce', '612-222-2222'), (UserIdHere, 'Galaxy Pizza', '612-222-2222'), (UserIdHere, 'Johns Pizza Cafe', '612-222-2222'),
 
 INSERT INTO "restaurant" ("user_id", "name", "phone")
 VALUES(UserIdHere, 'Smashburger', '612-222-2222'), (UserIdHere, 'Burger Jones', '612-222-2222'), (UserIdHere, 'The Burger Place', '612-222-2222');
-=======
-INSERT INTO "restaurant"
-    ("user_id", "name", "phone")
-VALUES(UserIdHere, 'Pizza Luce', '612-222-2222'),
-    (UserIdHere, 'Galaxy Pizza', '612-222-2222'),
-    (UserIdHere, 'Johns Pizza Cafe', '612-222-2222')
->>>>>>> Add MenuPage, MenuView and associated components  and routes
+
