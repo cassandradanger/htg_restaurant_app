@@ -17,7 +17,7 @@ function* fetchChosenMenu(action) {
   try {
     const response = yield axios.get(`/api/menu/${action.payload}`);
     console.log(response);
-    yield put({ type: 'SET_CHOSEN_Menu', payload: response.data });
+    yield put({ type: 'SET_CHOSEN_MENU', payload: response.data });
   } catch (error) {
     console.log('Menu get request failed', error);
   }
