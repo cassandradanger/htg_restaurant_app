@@ -17,11 +17,8 @@ import MenuPage from '../MenuPage';
 import RestaurantsList from '../RestaurantsList/RestaurantsList';
 import RestaurantAdminPage from '../RestaurantAdminPage/RestaurantAdminPage';
 import RestaurantView from '../RestaurantView/RestaurantView';
-<<<<<<< HEAD
 import AddRestaurant from '../AddRestaurant/AddRestaurant';
-=======
 import MenuView from '../MenuView';
->>>>>>> Add MenuPage, MenuView and associated components  and routes
 
 import './App.css';
 
@@ -61,14 +58,12 @@ class App extends Component {
               component={RestaurantAdminPage}
             />
 
-<<<<<<< HEAD
             <ProtectedRoute
               exact
               path="/addRestaurant"
               component={AddRestaurant}
             />
-            
-=======
+
             <Route
               exact
               path="/menuPage"
@@ -81,7 +76,6 @@ class App extends Component {
               component={MenuView}
             />
 
->>>>>>> Add MenuPage, MenuView and associated components  and routes
             <Route render={() => <h1>404</h1>} />
 
           </Switch>
