@@ -8,7 +8,6 @@ import {
 
 import {connect} from 'react-redux';
 
-import UserPage from '../UserPage/UserPage';
 // protected routes are only for logged in users
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -18,7 +17,7 @@ import RestaurantsList from '../RestaurantsList/RestaurantsList';
 import RestaurantAdminPage from '../RestaurantAdminPage/RestaurantAdminPage';
 import RestaurantView from '../RestaurantView/RestaurantView';
 import Geolocation from '../geolocation/geolocation'
-
+import AddRestaurant from '../AddRestaurant/AddRestaurant';
 
 import './App.css';
 
@@ -50,13 +49,19 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={RestaurantAdminPage}
             />
             
             <ProtectedRoute
               exact
               path="/restaurantAdmin"
               component={RestaurantAdminPage}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/addRestaurant"
+              component={AddRestaurant}
             />
             
             <Route render={() => <h1>404</h1>} />

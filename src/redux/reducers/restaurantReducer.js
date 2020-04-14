@@ -4,6 +4,8 @@ const restaurantReducer = (state = [], action) => {
         return action.payload;
       case 'SET_CHOSEN_RESTAURANT':
         return action.payload;
+      case 'SET_MY_RESTAURANTS':
+      return action.payload;
       default:
         return state;
     }
