@@ -3,12 +3,14 @@ import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
 import restaurant from './restaurantReducer';
+import menu from './menuReducer';
 
 const rootReducer = combineReducers({
-  errors, 
+  errors,
   loginMode,
   user,
-  restaurant
+  restaurant,
+  menu
 });
 
 export default rootReducer;
