@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Search from '../Search/Search';
 import './Nav.css';
 
 const Nav = (props) => (
@@ -12,6 +13,7 @@ const Nav = (props) => (
       <Link className="nav-link" to="/restaurantsList">
         Restaurants List
       </Link>
+      <Search />
 
       {/* this will only be seen if a user is logged in */}
       {props.user.id && (
