@@ -6,27 +6,32 @@ import './Nav.css';
 
 const Nav = (props) => (
   <div className="nav">
-      <h2 className="nav-title">Restaurant App</h2>
-      <Link className="nav-link" to="/home">
-        {props.user.id ? 'Home' : 'Login / Register'}
+       
+      <Link className="nav-item" to="/restaurantsList">
+        <img alt="fork and spoon logo" src={require("../../assets/images/Restaurant_finderLogo.png")}/>
       </Link>
-      <Link className="nav-link" to="/restaurantsList">
-        Restaurants List
-      </Link>
-      <Search />
+      {/* <span className="nav-item" ><Search/></span> */}
 
       {/* this will only be seen if a user is logged in */}
       {props.user.id && (
         <>
-          <Link className="nav-link" to="/restaurantAdmin">
+          <Link className="nav-item" to="/restaurantsList">
+            Restaurants List
+          </Link>
+          <Link className="nav-item" to="/restaurantAdmin">
             Restaurant Admin Page
           </Link>
-          <button onClick={() => props.dispatch({ type: 'LOGOUT' })}>
+          <button className="nav-item" onClick={() => props.dispatch({ type: 'LOGOUT' })}>
             Log Out
           </button>
         </>
       )}
-    </div>
+      {!props.user.id &&
+        <Link className="nav-item2" to="/home">
+          Login
+        </Link>
+      }
+  </div>
 );
 
 const mapStateToProps = state => ({
