@@ -28,7 +28,7 @@ const Nav = (props) => (
       )}
       {!props.user.id &&
         <Link className="nav-item2" to="/home">
-          Login
+          Restaurant Login
         </Link>
       }
   </div>
