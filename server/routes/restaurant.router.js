@@ -19,6 +19,21 @@ router.get('/', (req, res) => {
     })
 });
 
+// TO DO - model below /search route after /mine and make query for tags instead of user_id
+router.get('/search', (req, res) => {
+    console.log('check');
+    let sqlQuery = 'SELECT * from "restaurant"';
+    pool.query(sqlQuery)
+    .then((result) => {
+        console.log("hello", result);
+        res.send(result.rows);
+    })
+    .catch((error) => {
+        console.log('error', error);
+        res.sendStatus(500);
+    })
+});
+
 router.get('/mine', (req, res) => {
     console.log('check', req.user.id);
     let sqlQuery = `SELECT * from "restaurant" WHERE "user_id" = ${req.user.id}`;

@@ -10,6 +10,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
+// router.post('/search', (req, res) => {
+//   req.sendStatus(200);
+
+//   console.log("Search page");
+// })
+
 router.post('/register', (req, res, next) => {  
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);

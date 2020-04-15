@@ -12,6 +12,17 @@ function* fetchRestaurants() {
   }
 }
 
+function* fetchSearchRestaurants() {
+  try {
+    const response = yield axios.get('/api/restaurant/search');
+    console.log(response);
+
+    yield put({ type: 'SET_SEARCH_RESTAURANTS', payload: response.data });
+  } catch (error) {
+    console.log('Restaurants get request failed', error);
+  }
+}
+
 function* fetchChosenRestaurant(action){
   console.log("ACTION PAYLOAD", action.payload);
   try {
@@ -47,6 +58,8 @@ function* addNewRestaurant(action) {
 
 function* restaurantSaga() {
   yield takeLatest('FETCH_RESTAURANTS', fetchRestaurants);
+  yield takeLatest('FETCH_SEARCH_RESTAURANTS', fetchSearchRestaurants);
+  yield takeLatest('FETCH_RESTAURANTS', fetchSearchRestaurants);
   yield takeLatest('FETCH_CHOSEN_RESTAURANT', fetchChosenRestaurant);
   yield takeLatest('FETCH_MY_RESTAURANTS', fetchMyRestaurants);
   yield takeLatest('ADD_NEW_RESTAURANT', addNewRestaurant);
