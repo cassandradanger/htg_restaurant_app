@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, withRouter } from 'react-router-dom';
 import MapMarker from '../MapMarker/MapMarker';
 import UserMapMarker from '../userMarker/userMarker'
 import {
@@ -49,7 +48,6 @@ class MapContainer extends Component {
       
       const {userLocation } = this.state;  
         return(
-        // <Router>
             <div className="mapHomeComponent">
                 <LoadScript
                     id="script-loader"
@@ -83,11 +81,10 @@ class MapContainer extends Component {
                     </GoogleMap>
                  </LoadScript> 
             </div>
-        // </Router>
     )
   }
 }
 const mapStateToProps = (state) => ({
     state
 });
-export default withRouter(connect(mapStateToProps)(MapContainer));
+export default connect(mapStateToProps)(MapContainer);
