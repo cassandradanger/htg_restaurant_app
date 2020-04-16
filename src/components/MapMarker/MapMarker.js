@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import {  HashRouter as Router} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import {
@@ -30,7 +29,6 @@ class MapMarker extends Component {
        
        let restaurant = '/'
        return (
-        //    <Router>
            <div className="mapMarker">
                <Marker
                     position={{
@@ -72,7 +70,6 @@ class MapMarker extends Component {
                     ""
                 }
            </div>
-        //    </Router>
        )
    }
 }
