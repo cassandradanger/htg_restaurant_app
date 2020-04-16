@@ -1,6 +1,8 @@
 const restaurantReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_RESTAURANTS':
+        console.log('reducer',action.payload);
+        
         return action.payload;
       case 'SET_SEARCH_RESTAURANTS':
         return action.payload;
