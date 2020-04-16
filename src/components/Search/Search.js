@@ -59,23 +59,12 @@ class Search extends Component {
     render() {
         return (
         <div>
-            <div>
-                Search Restaurants 
-                <input 
-                    id="search-text" 
-                    name="searchText"
-                    value={this.state.userSearchInput}
-                    onChange={this.handleChange}
-                />
-
-                {this.state.userSearchInput ? 
-                <Link className="nav-link" to="/searchPage">
-                    <button id="submit-button" onClick={this.handleUserInputSubmit}>Go</button>
-                </Link> :
-                <button id="submit-button" onClick={this.handleUserInputSubmit}>Go</button>
-                }
-
-                <div class="dropdown">
+            <div className="search-bar">
+                <h4>
+                Search Restaurants
+                </h4>
+                <form>
+                <div class="dropdown" id="dropdown1">
                     <button class="dropbtn">Filter by Cuisine</button>
                     <div class="dropdown-content" id="search-dropdown">
                         <Link className="nav-link" to="/searchPage"><span>American</span></Link>
@@ -87,6 +76,29 @@ class Search extends Component {
                         <Link className="nav-link" to="/searchPage"><span>Surprise Me</span></Link>
                     </div>
                 </div>
+
+                <div class="dropdown" id="dropdown2">
+                    <button class="dropbtn">Carryout Options</button>
+                    <div class="dropdown-content" id="search-dropdown">
+                        <Link className="nav-link" to="/searchPage"><span>Delivery</span></Link>
+                        <Link className="nav-link" to="/searchPage"><span>Takeout</span></Link>
+                    </div>
+                </div>
+
+                {/* {this.state.userSearchInput ? 
+                <Link className="nav-link" to="/searchPage">
+                    <button id="submit-button" onClick={this.handleUserInputSubmit}>Go</button>
+                </Link> :
+                <button id="submit-button" onClick={this.handleUserInputSubmit}>Go</button>
+                } */}
+
+                {/* <input 
+                    id="search-text" 
+                    name="searchText"
+                    value={this.state.userSearchInput}
+                    onChange={this.handleChange}
+                /> */}
+                </form>
 
                 {/* <h1>Your userInput Is: {this.state.userSearchInput}</h1> */}
     
