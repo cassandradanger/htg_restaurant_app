@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../Button/Button';
 
-class RestaurantList extends Component {
+class SearchList extends Component {
 
   componentDidMount () {
-    this.props.dispatch({type: 'FETCH_RESTAURANTS'});
+    this.props.dispatch({type: 'FETCH_SEARCH_RESTAURANTS'});
   }
 
   chooseRestaurant = (event, restaurant) => {
@@ -18,7 +18,7 @@ class RestaurantList extends Component {
       <div>
         <div>
           <p>
-            Here is a list of restaraunts 
+            Search Results
           </p>
           <div className="buttonWrapper">
             {this.props.state.restaurant ?
@@ -40,4 +40,4 @@ const mapStateToProps = state => ({
   state
 });
 
-export default connect(mapStateToProps)(RestaurantList);
+export default connect(mapStateToProps)(SearchList);

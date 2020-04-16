@@ -17,6 +17,7 @@ import MenuPage from '../MenuPage';
 import RestaurantsList from '../RestaurantsList/RestaurantsList';
 import RestaurantAdminPage from '../RestaurantAdminPage/RestaurantAdminPage';
 import RestaurantView from '../RestaurantView/RestaurantView';
+import SearchPage from '../SearchPage/SearchPage';
 import AddRestaurant from '../AddRestaurant/AddRestaurant';
 import MenuView from '../MenuView';
 import AddMenu from '../AddMenu/AddMenu';
@@ -35,7 +36,7 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            <Redirect exact from="/" to="/home" />
+            <Redirect exact from="/" to="/restaurantsList" />
             <Route
               exact
               path="/restaurantsList"
@@ -45,6 +46,12 @@ class App extends Component {
               exact
               path="/restaurantView"
               component={RestaurantView}
+            />
+
+            <Route
+              exact
+              path="/searchPage"
+              component={SearchPage}
             />
 
             <ProtectedRoute
