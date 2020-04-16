@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Search from '../Search/Search';
 import './Nav.css';
 
 const Nav = (props) => (
@@ -10,7 +9,6 @@ const Nav = (props) => (
       <Link className="nav-item" to="/restaurantsList">
         <img alt="fork and spoon logo" src={require("../../assets/images/Restaurant_finderLogo.png")}/>
       </Link>
-      {/* <span className="nav-item" ><Search/></span> */}
 
       {/* this will only be seen if a user is logged in */}
       {props.user.id && (

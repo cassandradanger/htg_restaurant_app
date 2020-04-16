@@ -4,6 +4,11 @@ import SearchList from '../SearchList/SearchList';
 
 class SearchPage extends Component {
 
+  componentDidMount () {
+    console.log('hello this is the search page');
+    this.props.dispatch({type: 'FETCH_SEARCH_RESTAURANTS'});
+  }
+
   render() {
     return (
       <div>

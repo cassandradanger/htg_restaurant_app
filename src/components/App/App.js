@@ -21,6 +21,7 @@ import SearchPage from '../SearchPage/SearchPage';
 import AddRestaurant from '../AddRestaurant/AddRestaurant';
 import MenuView from '../MenuView';
 import AddMenu from '../AddMenu/AddMenu';
+import Search from '../Search/Search';
 
 import './App.css';
 
@@ -35,6 +36,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
+          <Geolocation />
           <Switch>
             <Redirect exact from="/" to="/restaurantsList" />
             <Route
