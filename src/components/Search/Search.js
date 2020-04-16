@@ -29,6 +29,7 @@ class Search extends Component {
         super(props);
         this.state = { 
             results: [],
+            searchText: '',
             userSearchInput: '',
         };
     }
@@ -37,8 +38,22 @@ class Search extends Component {
         this.setState({ userSearchInput: event.target.value });
     };
 
-    handleUserInputSubmit() {
+    // TO DO - CHANGE BELOW SET STATE TO A GET STATE INSTEAD. 
+    // OR LOOK UP HOW TO GET AND USE STATE IN REACT (GOOGLE)
+    handleUserInputSubmit = event => {
+        // this.setState({ userSearchInput: event.target.value });
+        let userValue = event.target.value;
+
         console.log("User input collected");
+        console.log("______________________");
+
+        if (userValue === '') {
+            this.setState({ results: [] })
+            console.log("No user value");
+        } else {
+            this.setState({ results: "Query ready"});
+            console.log("This is my user value" + userValue);
+        }
     }
 
     render() {
@@ -48,6 +63,7 @@ class Search extends Component {
                 Search Restaurants 
                 <input 
                     id="search-text" 
+                    name="searchText"
                     value={this.state.userSearchInput}
                     onChange={this.handleChange}
                 />
