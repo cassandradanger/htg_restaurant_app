@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { select, put, takeLatest } from 'redux-saga/effects';
 
 function* fetchRestaurants() {
   try {
@@ -10,6 +10,13 @@ function* fetchRestaurants() {
   } catch (error) {
     console.log('Restaurants get request failed', error);
   }
+}
+
+function* returnRestaurant(){
+yield select((state)=>{
+  console.log(state);
+  
+})
 }
 
 function* fetchChosenRestaurant(action){

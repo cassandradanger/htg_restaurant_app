@@ -1,51 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, withRouter } from 'react-router-dom';
-import Geolocation from '../geolocation/geolocation'
-// import {
-//     GoogleMap,
-//     LoadScript,
-// } from 'google-map-react';
-import GoogleMapReact from 'google-map-react';
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import MapMarker from '../MapMarker/MapMarker';
+import UserMapMarker from '../userMarker/userMarker'
+import {
+    GoogleMap,
+    LoadScript,
+} from '@react-google-maps/api';
 
 class MapContainer extends Component { 
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
-    zoom: 11
-  };
+  state = { 
+    userLocation: { latitude: 0, longitude: 0 },
+     loading: true
+    };
     componentDidMount() {
       this.getLocations();
+      this.getGeoLocation();
+
     }
     // Calls locations to be passed down to MapMarker component
     getLocations = () => {
-        this.props.dispatch({ type: 'fetchRestaurants' })
-        console.log(this.state);
-        
+        return this.props.dispatch({ type: 'fetchRestaurants', payload: this.props.state.restaurantReducer })
     } // end getLocations
+       //function get current location
+       getGeoLocation = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    console.log(position.coords);
+                    this.setState(prevState => ({
+                        userLocation: {
+                            ...prevState.userLocation,
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                            accuracy: position.coords.accuracy
+                        }
+                    }))
+                }
+            )
+        } else {
+            console.log('error')
+        }
+    }
   
     render() {
-        // const {userLocation } = this.state;  
+      const {userLocation } = this.state;  
         return(
-        <Router>
-            <div style={{ height: '80vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key:process.env.REACT_APP_GOOGLE_KEY }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
-          <Geolocation/>
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          />
-        </GoogleMapReact>
-      </div>
-            {/* <div className="mapHomeComponent">
+        // <Router>
+            <div className="mapHomeComponent">
                 <LoadScript
                     id="script-loader"
                     googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}
@@ -53,10 +55,14 @@ class MapContainer extends Component {
                     <GoogleMap
                         className="mainMap"
                         mapContainerStyle={{
-                            height: "89.5vh",
+                            height: "20.5vh",
                             width: "auto"
                         }}
                         zoom={10}
+                        center={{
+                          lat: userLocation.latitude,
+                          lng: userLocation.longitude,
+                      }}
                         options={{
                             "mapTypeId": 'terrain',
                             "zoomControl": false,
@@ -67,18 +73,18 @@ class MapContainer extends Component {
                             "fullscreenControl": false,
                         }}
                     >
-                
-                        {this.props.reduxStore.restaurantReducer.map(restaurant =>
+                          {/* {this.props.state.restaurantReducer.map(restaurant =>
                                 <MapMarker key={restaurant.id} restaurant={restaurant} />
-                        )}
+                        )} */}
+                    <UserMapMarker initialCenter={userLocation}/>
                     </GoogleMap>
                  </LoadScript> 
-            </div> */}
-        </Router>
+            </div>
+        // </Router>
     )
   }
 }
-const mapStateToProps = (reduxStore) => ({
-    reduxStore
+const mapStateToProps = (state) => ({
+    state
 });
 export default withRouter(connect(mapStateToProps)(MapContainer));
