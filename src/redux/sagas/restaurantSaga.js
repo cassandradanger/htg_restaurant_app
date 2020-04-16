@@ -12,13 +12,6 @@ function* fetchRestaurants() {
   }
 }
 
-function* returnRestaurant(){
-yield select((state)=>{
-  console.log(state);
-  
-})
-}
-
 function* fetchChosenRestaurant(action){
   console.log("ACTION PAYLOAD", action.payload);
   try {

@@ -5,7 +5,7 @@ import MapMarker from '../MapMarker/MapMarker';
 import UserMapMarker from '../userMarker/userMarker'
 import {
     GoogleMap,
-    LoadScript,
+    LoadScript
 } from '@react-google-maps/api';
 
 class MapContainer extends Component { 
@@ -20,8 +20,9 @@ class MapContainer extends Component {
     }
     // Calls locations to be passed down to MapMarker component
     getLocations = () => {
-        return this.props.dispatch({ type: 'fetchRestaurants', payload: this.props.state.restaurantReducer })
-    } // end getLocations
+        return this.props.dispatch({ type: 'fetchRestaurants', payload: this.props.state.restaurant })
+        
+      } // end getLocations
        //function get current location
        getGeoLocation = () => {
         if (navigator.geolocation) {
@@ -44,6 +45,8 @@ class MapContainer extends Component {
     }
   
     render() {
+      console.log(this.props.state);
+      
       const {userLocation } = this.state;  
         return(
         // <Router>
@@ -73,9 +76,9 @@ class MapContainer extends Component {
                             "fullscreenControl": false,
                         }}
                     >
-                          {/* {this.props.state.restaurantReducer.map(restaurant =>
+                          {this.props.state.restaurant.map(restaurant =>                          
                                 <MapMarker key={restaurant.id} restaurant={restaurant} />
-                        )} */}
+                        )}
                     <UserMapMarker initialCenter={userLocation}/>
                     </GoogleMap>
                  </LoadScript> 
