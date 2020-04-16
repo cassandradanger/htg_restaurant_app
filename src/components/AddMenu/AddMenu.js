@@ -1,56 +1,62 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Button from '../Button/Button';
+import ItemInputs from '../ItemInputs';
 
 class AddMenu extends Component {
   state = {
     menuType: '',
     menuNote: '',
-    sections: [],
-    sectionName: '',
-    items: [],
-    itemName: '',
-    itemDescription: '',
-    itemPrice: '',
-    itemImageLink: ''
+    items: [{ itemName: '', itemDescription: '', itemPrice: '', itemImageLink: '' }],
   };
 
-  addNewMenu = (event) => {
-    event.preventDefault();
-    console.log(this.props.state)
-    if (this.props.state.user.id) {
-      this.props.dispatch({
-        type: 'ADD_NEW_MENU',
-        payload: {
-          menuType: this.state.menuType,
-          menuNote: this.state.menuNote,
-          sections: this.state.sections,
-          items: this.state.items,
-        }
-      })
-      this.props.history.push('/addMenu');
-    } else {
-      this.props.dispatch({ type: 'MENU_INPUT_ERROR' });
-    }
-  } // end add Menu
+  // addNewMenu = (event) => {
+  //   event.preventDefault();
+  //   console.log(this.props.state)
+  //   if (this.props.state.user.id) {
+  //     this.props.dispatch({
+  //       type: 'ADD_NEW_MENU',
+  //       payload: {
+  //         menuType: this.state.menuType,
+  //         menuNote: this.state.menuNote,
+  //         sections: this.state.sections,
+  //         items: this.state.items,
+  //       }
+  //     })
+  //     this.props.history.push('/addMenu');
+  //   } else {
+  //     this.props.dispatch({ type: 'MENU_INPUT_ERROR' });
+  //   }
+  // } // end add Menu
 
-  handleInputChangeFor = propertyName => (event) => {
-    this.setState({
-      [propertyName]: event.target.value,
-    });
+  handleChange = (e) => {
+    if (["itemName", "itemDescription", "itemPrice", "itemImageLink"].includes(e.target.className)) {
+      let items = [...this.state.items];
+      items[e.target.dataset.id][e.target.className] = e.target.value;
+      this.setState({ items }, () => console.log(this.state.items));
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
   }
 
+  addItem = (e) => {
+    this.setState((prevState) => ({
+      items: [...prevState.items, { itemName: '', itemDescription: '', itemPrice: '', itemImageLink: '' }]
+    }));
+  }
+
+  handleSubmit = (e) => { e.preventDefault() }
+
   render() {
+    let { menuType, menuNote, items } = this.state;
     return (
       <div>
-        <form onSubmit={this.addNewMenu}>
+        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <h1>Add a menu</h1>
           <div>
             <label htmlFor="menuType">Menu Type:</label>
             <select id="menuType"
               name="menuType"
-              value="{this.state.menuType}"
-              onChange={this.handleInputChangeFor('menuType')}
+              value={menuType}
+              className="menuType"
             >
               <option value="Breakfast">Breakfast</option>
               <option value="Brunch">Brunch</option>
@@ -61,90 +67,22 @@ class AddMenu extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="menuNote">
-              Note:
-            <input
-                type="text"
-                name="menuNote"
-                value={this.state.menuNote}
-                onChange={this.handleInputChangeFor('menuNote')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="sectionName">
-              Section Name:
-              <input
-                type="text"
-                name="sectionName"
-                value={this.state.sectionName}
-                onChange={this.handleInputChangeFor('sectionName')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="itemName">
-              Item Name:
-              <input
-                type="text"
-                name="itemName"
-                value={this.state.itemName}
-                onChange={this.handleInputChangeFor('itemName')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="itemDescription">
-              Item Description:
-              <input
-                type="text"
-                name="itemDescription"
-                value={this.state.itemDescription}
-                onChange={this.handleInputChangeFor('itemDescription')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="itemPrice">
-              Item Price:
-              <input
-                type="integer"
-                name="itemPrice"
-                value={this.state.itemPrice}
-                onChange={this.handleInputChangeFor('itemPrice')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="itemImageLink">
-              Item Image Link:
-              <input
-                type="text"
-                name="itemImageLink"
-                value={this.state.itemImageLink}
-                onChange={this.handleInputChangeFor('itemImageLink')}
-              />
-            </label>
-          </div>
-
-          <div>
-            <input
-              className="addNew"
-              type="submit"
-              name="submit"
-              value="Add New Menu"
+            <label htmlFor="menuNote">Note:</label>
+            <textarea
+              type="text"
+              name="menuNote"
+              value={menuNote}
+              className="menuNote"
             />
           </div>
+          <button onClick={this.addItem}>Add new item</button>
+          <ItemInputs items={items} />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  state
-});
-
-
-export default connect(mapStateToProps)(AddMenu);
+export default AddMenu;
 
