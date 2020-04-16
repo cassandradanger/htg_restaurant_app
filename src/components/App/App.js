@@ -35,7 +35,6 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
-          <Geolocation />
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route

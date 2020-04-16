@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import RestaurantList from '../RestaurantList/RestaurantList';
 import './Search.css';
-import debounce from "lodash.debounce";
+// import debounce from "lodash.debounce";
 
 class Search extends Component {
     state = {
@@ -9,7 +9,7 @@ class Search extends Component {
     results: []
     }
 
-    delayedCallback = debounce(this.ajaxCall, 400)
+    // delayedCallback = debounce(this.ajaxCall, 400)
 
     ajaxCall(event) {
         const value = event.target.value;
