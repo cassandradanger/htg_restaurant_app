@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Search.css';
+// import debounce from "lodash.debounce";
+
 
 class Search extends Component {
-
+    // delayedCallback = debounce(this.ajaxCall, 400)
     // state = {
     // searchText: '',
     // results: []
     // }
-
     // to do - query call on tags not ajax
     // ajaxCall(event) {
     //     const value = event.target.value;

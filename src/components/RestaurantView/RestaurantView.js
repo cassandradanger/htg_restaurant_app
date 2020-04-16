@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MenuView from '../MenuView/MenuView'
-
+import Map from '../RestaurantMap/RestaurantMap'
 import './RestaurantView.css';
 
 class RestaurantView extends Component {
@@ -15,7 +15,8 @@ class RestaurantView extends Component {
           <p></p>
         }
 
-        <MenuView></MenuView>
+        <MenuView/>
+        <Map/>
       </div>
     )
   }
