@@ -17,7 +17,8 @@ import MenuPage from '../MenuPage';
 import RestaurantsList from '../RestaurantsList/RestaurantsList';
 import RestaurantAdminPage from '../RestaurantAdminPage/RestaurantAdminPage';
 import RestaurantView from '../RestaurantView/RestaurantView';
-import Geolocation from '../geolocation/geolocation'
+import SearchPage from '../SearchPage/SearchPage';
+import Geolocation from '../geolocation/geolocation';
 import AddRestaurant from '../AddRestaurant/AddRestaurant';
 import MenuView from '../MenuView';
 import AddMenu from '../AddMenu/AddMenu';
@@ -47,6 +48,12 @@ class App extends Component {
               exact
               path="/restaurantView"
               component={RestaurantView}
+            />
+
+            <Route
+              exact
+              path="/searchPage"
+              component={SearchPage}
             />
 
             <ProtectedRoute
