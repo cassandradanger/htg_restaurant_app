@@ -16,17 +16,15 @@ class SingleRestaurant extends Component {
   render() {
     return (
         <Router>
-        <div className="wrap">
+        <div>
                {this.props.state.restaurant ?
               <div>
                 {this.props.state.restaurant.map((restaurant) => 
                 <div className="card" onClick={this.chooseRestaurant} key={restaurant.id}>
                   <p>{restaurant.name}</p>
-                {/* <p>{restaurant.picture}</p>
-                <p>{restaurant.description}</p>
-                <p>{restaurant.welcomeNote}</p> */}
+                  <img src={restaurant.picture}/>
+                <p>{restaurant.welcomeNote}</p>
                 <p>{restaurant.hours}</p>
-                  {/* <img src={restaurant.picture}/> */}
                 </div>
               )}
               </div>
