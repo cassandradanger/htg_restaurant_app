@@ -4,21 +4,21 @@ import Button from '../Button/Button';
 
 class RestaurantList extends Component {
 
-  componentDidMount () {
-    this.props.dispatch({type: 'FETCH_RESTAURANTS'});
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_RESTAURANTS' });
   }
 
   chooseRestaurant = (event, restaurant) => {
-    console.log(restaurant);
-    this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: restaurant});
-    this.props.history.push('/restaurantView')
+    console.log('chosen restaurant: ', restaurant);
+    this.props.dispatch({ type: 'FETCH_CHOSEN_RESTAURANT', payload: restaurant });
+    this.props.history.push(`/menuPage/${restaurant}`)
   }
   render() {
     return (
       <div>
         <div>
           <p>
-            Here is a list of restaraunts 
+            Here is a list of restaraunts
           </p>
           <div className="buttonWrapper">
             {this.props.state.restaurant ?

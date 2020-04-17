@@ -4,7 +4,11 @@ import MenuButton from '../MenuButton';
 
 class MenuPage extends Component {
   componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_MENUS' });
+    const restaurant = this.props.match.params.id;
+    console.log('MenuPage menu: ', restaurant);
+    // this.props.dispatch({ type: 'FETCH_MENUS' });
+    this.props.dispatch({ type: 'FETCH_CHOSEN_MENU', payload: restaurant });
+    this.props.history.push('/menuView')
   }
 
   chooseMenu = (event, menu) => {
@@ -17,7 +21,7 @@ class MenuPage extends Component {
   render() {
     return (
       <div>
-        <div>
+        {/* <div>
           <p>
             Here is a list of menus
           </p>
@@ -30,7 +34,7 @@ class MenuPage extends Component {
               <p>no menus</p>
             }
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

@@ -82,7 +82,7 @@ class App extends Component {
 
             <Route
               exact
-              path="/menuPage"
+              path="/menuPage/:id"
               component={MenuPage}
             />
 
