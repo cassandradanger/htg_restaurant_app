@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import MenuButton from '../MenuButton';
 
 class MenuPage extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_MENUS' });
-  }
+  // componentDidMount() {
+  //   this.props.dispatch({ type: 'FETCH_MENUS', payload: this.props.state.restaurant[0].id });
+  // }
 
   chooseMenu = (event, menu) => {
     console.log(menu);
