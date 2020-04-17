@@ -11,7 +11,7 @@ class AddRestaurant extends Component {
     address: '',
     city: '',
     state: '',
-    zipcode: '',
+    zipcode: 0,
     hours: '',
     link: '',
     welcomeNote: '',
@@ -29,11 +29,11 @@ class AddRestaurant extends Component {
         type: 'ADD_NEW_RESTAURANT',
         payload: {
           name: this.state.name,
-          phone: this.state.phone,
+          phone: parseInt(this.state.phone),
           address: this.state.address,
           city: this.state.city,
           state: this.state.state,
-          zipcode: this.state.zipcode,
+          zipcode: parseInt(this.state.zipcode),
           hours: this.state.hours,
           link: this.state.link,
           welcomeNote: this.state.welcomeNote,
@@ -42,7 +42,7 @@ class AddRestaurant extends Component {
           delivery: this.state.delivery,
         }
       })
-      this.props.history.push('/restaurantAdmin');
+      this.props.history.push('/AddMenu');
     } else {
       this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
     }

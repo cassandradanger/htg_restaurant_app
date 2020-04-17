@@ -50,7 +50,7 @@ function* addNewRestaurant(action) {
   try {
     const response = yield axios.post('/api/restaurant', {data: action.payload});
     console.log(response);
-    yield put({ type: 'FETCH_MY_RESTAURANTS'});
+    yield put({ type: 'FETCH_CHOSEN_RESTAURANT', payload: response.data[0].id });
   } catch (error) {
     console.log('Restaurants get request failed', error);
   }
