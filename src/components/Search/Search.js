@@ -13,7 +13,7 @@ class Search extends Component {
     // to do - query call on tags not ajax
     // ajaxCall(event) {
     //     const value = event.target.value;
-    
+
     //     if (value === '') {
     //       this.setState({ results: [] })
     //     } else {
@@ -26,9 +26,9 @@ class Search extends Component {
     //     }
     //   }
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             results: [],
             searchText: '',
             userSearchInput: '',
@@ -52,65 +52,65 @@ class Search extends Component {
             this.setState({ results: [] })
             console.log("No user value");
         } else {
-            this.setState({ results: "Query ready"});
+            this.setState({ results: "Query ready" });
             console.log("This is my user value" + userValue);
         }
     }
 
     render() {
         return (
-        <div>
-            <div className="search-bar">
-                <h4>
-                Search Restaurants
+            <div>
+                <div className="search-bar">
+                    <h4>
+                        Search Restaurants
                 </h4>
-                <form>
-                <div class="dropdown" id="dropdown1">
-                    <button class="dropbtn">Filter by Cuisine</button>
-                    <div class="dropdown-content" id="search-dropdown">
-                        <Link className="nav-link" to="/searchPage"><span>American</span></Link>
-                        <Link className="nav-link" to="/searchPage"><span>Mexican</span></Link>
-                        <Link className="nav-link" to="/searchPage"><span>French</span></Link>
-                        <Link className="nav-link" to="/searchPage"><span>African</span></Link>
-                        <Link className="nav-link" to="/searchPage"><span>Asian</span></Link>
-                        <Link className="nav-link" to="/searchPage"><span>Italian</span></Link>
-                        <Link className="nav-link" to="/searchPage"><span>Surprise Me</span></Link>
-                    </div>
-                </div>
+                    <form>
+                        <div className="dropdown" id="dropdown1">
+                            <button className="dropbtn">Filter by Cuisine</button>
+                            <div className="dropdown-content" id="search-dropdown">
+                                <Link className="nav-link" to="/searchPage"><span>American</span></Link>
+                                <Link className="nav-link" to="/searchPage"><span>Mexican</span></Link>
+                                <Link className="nav-link" to="/searchPage"><span>French</span></Link>
+                                <Link className="nav-link" to="/searchPage"><span>African</span></Link>
+                                <Link className="nav-link" to="/searchPage"><span>Asian</span></Link>
+                                <Link className="nav-link" to="/searchPage"><span>Italian</span></Link>
+                                <Link className="nav-link" to="/searchPage"><span>Surprise Me</span></Link>
+                            </div>
+                        </div>
 
-                <div class="dropdown" id="dropdown2">
-                    <button class="dropbtn">Carryout Options</button>
-                    <div class="dropdown-content" id="search-dropdown">
-                        <Link className="nav-link" to="/searchPage"><span>Delivery</span></Link>
-                        <Link className="nav-link" to="/searchPage"><span>Takeout</span></Link>
-                    </div>
-                </div>
+                        <div className="dropdown" id="dropdown2">
+                            <button className="dropbtn">Carryout Options</button>
+                            <div className="dropdown-content" id="search-dropdown">
+                                <Link className="nav-link" to="/searchPage"><span>Delivery</span></Link>
+                                <Link className="nav-link" to="/searchPage"><span>Takeout</span></Link>
+                            </div>
+                        </div>
 
-                {/* {this.state.userSearchInput ? 
+                        {/* {this.state.userSearchInput ? 
                 <Link className="nav-link" to="/searchPage">
                     <button id="submit-button" onClick={this.handleUserInputSubmit}>Go</button>
                 </Link> :
                 <button id="submit-button" onClick={this.handleUserInputSubmit}>Go</button>
                 } */}
 
-                {/* <input 
+                        {/* <input 
                     id="search-text" 
                     name="searchText"
                     value={this.state.userSearchInput}
                     onChange={this.handleChange}
                 /> */}
-                </form>
+                    </form>
 
-                {/* <h1>Your userInput Is: {this.state.userSearchInput}</h1> */}
-    
-            </div>
+                    {/* <h1>Your userInput Is: {this.state.userSearchInput}</h1> */}
 
-            {/* <div>
+                </div>
+
+                {/* <div>
             {this.state.results.length > 0 ? (
                 <RestaurantList results={this.state.results} />
             ) : null}
             </div> */}
-        </div>
+            </div>
         )
     }
 }
