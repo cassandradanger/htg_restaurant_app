@@ -8,8 +8,14 @@ router.get('/:id', (req, res) => {
   let sqlQuery = `SELECT * from "menu" WHERE "restaurant_id" = ${menu_id}`;
   pool.query(sqlQuery)
     .then((result) => {
-      console.log('result', result);
-      res.send(result);
+      console.log('result', result.rows[0].id);
+      let sqlQuery2 = `SELECT * from "menu_item" WHERE "menu_id" = ${result.rows[0].id}`;
+      pool.query(sqlQuery2)
+      .then((result) => {
+        console.log("EMNU ITMES", result.rows)
+        res.send(result.rows)
+      })
+
     }).catch((error) => {
       console.log('error', error);
       res.sendStatus(500);

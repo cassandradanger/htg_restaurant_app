@@ -12,7 +12,7 @@ class RestaurantList extends Component {
     console.log(id);
     this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: id});
     this.props.dispatch({ type: 'FETCH_MENUS', payload: id });
-    this.props.history.push('/menuPage')
+    this.props.history.push('/menuView')
   }
   render() {
     return (
