@@ -18,9 +18,6 @@ class RestaurantList extends Component {
     return (
       <div>
         <div>
-          <p>
-            Here is a list of restaraunts 
-          </p>
           <div className="buttonWrapper">
             {this.props.state.restaurant ?
               this.props.state.restaurant.map((restaurant) => {

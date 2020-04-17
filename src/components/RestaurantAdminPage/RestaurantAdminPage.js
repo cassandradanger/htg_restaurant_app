@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../Button/Button';
+import './RestaurantAdminPage.css';
 
 class RestaurantAdminPage extends Component {
 
@@ -28,15 +29,15 @@ class RestaurantAdminPage extends Component {
   render() {
     return(
       <div>
-        <p>
-          Welcome, { this.props.state.user.username }
-        </p>
-        <button onClick={this.addNewRestaurant}>Add New Restaurant</button>
+        <h1 className="welcomeUser">
+          Hello, { this.props.state.user.username }!
+        </h1>
+        <button className="addNewBtn" onClick={this.addNewRestaurant}>Add New Restaurant</button>
         <div className="buttonWrapper">
           <h2>Your restaurants:</h2>
             {this.props.state.restaurant ?
               this.props.state.restaurant.map((restaurant) => {
-                return <Button admin="true" chooseRestaurant={this.chooseRestaurant} key={restaurant.id} restaurant={restaurant}></Button>
+                return <Button className="restaurantChoice" admin="true" chooseRestaurant={this.chooseRestaurant} key={restaurant.id} restaurant={restaurant}></Button>
               })
               :
               <p>no restaurants</p>
