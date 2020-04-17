@@ -1,3 +1,7 @@
+-- Blow away your DB and start fresh - run these commands, 
+-- create a user, 
+-- then run the inserts, 
+-- then import the menu_item csv file
 
 CREATE TABLE "user"
 (
