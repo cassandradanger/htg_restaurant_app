@@ -43,7 +43,7 @@ class LoginPage extends Component {
           </h2>
         )}
         <form onSubmit={this.login}>
-          <center> <h1>Login</h1></center>
+          <center><h1>Login</h1></center>
           <div>
             <label htmlFor="username">
               <center>Username:</center>
