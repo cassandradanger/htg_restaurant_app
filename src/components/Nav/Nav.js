@@ -7,7 +7,7 @@ const Nav = (props) => (
   <div className="nav">
        
       <Link className="nav-item" to="/restaurantsList">
-        <img alt="fork and spoon logo" src={require("../../assets/images/Restaurant_finderLogo.png")}/>
+        <img alt="fork and spoon logo" src={require("../../assets/images/TOLU.png")}/>
       </Link>
 
       {/* this will only be seen if a user is logged in */}
