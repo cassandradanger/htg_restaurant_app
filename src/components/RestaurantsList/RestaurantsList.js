@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../Button/Button';
 
+import './RestaurantsList.css'
+
 class RestaurantList extends Component {
 
   componentDidMount () {
@@ -15,22 +17,25 @@ class RestaurantList extends Component {
   }
   render() {
     return (
-      <div>
         <div>
-          <p>
+      <p>
             Here is a list of restaraunts 
           </p>
-          <div className="buttonWrapper">
+   
+          <div>
             {this.props.state.restaurant ?
-              this.props.state.restaurant.map((restaurant) => {
-                return <Button chooseRestaurant={this.chooseRestaurant} key={restaurant.id} restaurant={restaurant}></Button>
-              })
+              <div class="flex-container" onClick={this.chooseRestaurant}>{this.props.state.restaurant.map((restaurant) => 
+                <div key={restaurant.id}>
+                  <p>{restaurant.name}</p>
+                  <img src={restaurant.picture} />
+                </div>
+              )}
+              </div>
               :
               <p>no restaurants</p>
             }
           </div>
-        </div>
-      </div>
+</div>
     )
   }
 }

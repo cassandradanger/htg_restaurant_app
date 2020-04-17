@@ -1,16 +1,71 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Button from '../Button/Button';
+import ItemInputs from '../ItemInputs';
 
 class AddMenu extends Component {
+  state = {
+    menuType: '',
+    menuNote: '',
+    items: [{ itemName: '', itemDescription: '', itemPrice: '', itemImageLink: '' }],
+  };
+
+  handleChange = (e) => {
+    if (["itemName", "itemDescription", "itemPrice", "itemImageLink"].includes(e.target.className)) {
+      let items = [...this.state.items];
+      items[e.target.dataset.id][e.target.className] = e.target.value;
+      this.setState({ items }, () => console.log(this.state.items));
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
+  }
+
+  addItem = (e) => {
+    this.setState((prevState) => ({
+      items: [...prevState.items, { itemName: '', itemDescription: '', itemPrice: '', itemImageLink: '' }]
+    }));
+  }
+
+  handleSubmit = (e) => { e.preventDefault() }
 
   render() {
-    return(
+    let { menuType, menuNote, items } = this.state;
+    return (
       <div>
-          <h1>Add a Menu</h1>
+        <form onSubmit={this.handleSubmit}>
+          {this.props.state.restaurant &&
+           <h1>{this.props.state.restaurant[0].name}</h1>
+          }
+          <h3>Add a menu</h3>
           <div>
-              form goes here
+            <label htmlFor="menuType">Menu Type:</label>
+            <select id="menuType"
+              name="menuType"
+              value={menuType}
+              className="menuType"
+              onChange={this.handleChange}
+            >
+              <option value="Breakfast">Breakfast</option>
+              <option value="Brunch">Brunch</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Lunch/Dinner">Lunch/Dinner</option>
+              <option value="Dinner">Dinner</option>
+              <option value="All Day">All Day</option>
+            </select>
           </div>
+          <div>
+            <label htmlFor="menuNote">Note:</label>
+            <textarea
+              type="text"
+              name="menuNote"
+              value={menuNote}
+              className="menuNote"
+              onChange={this.handleChange}
+            />
+          </div>
+          <button onClick={this.addItem}>Add new item</button>
+          <ItemInputs items={items} />
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     )
   }
@@ -22,3 +77,5 @@ const mapStateToProps = state => ({
 
 
 export default connect(mapStateToProps)(AddMenu);
+
+
