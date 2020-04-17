@@ -3,7 +3,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer>
-    This is a footer
+    &copy;TOLU - Hack the Gap 2020
   </footer>
 );
 
