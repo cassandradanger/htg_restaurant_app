@@ -1,0 +1,65 @@
+
+.formWrapper{
+    color: #000839;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 700px;
+    min-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.formWrapper p{
+    width: 90%;
+    margin: 20px auto;
+    font-size: 14pt;
+    font-weight: thin;
+    text-align: left;
+}
+
+.formWrapper form{
+    margin: 20px 35px;
+}
+
+.formWrapper div{
+    margin: 20px 0;
+}
+
+.formWrapper input{
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #000839;
+}
+
+.formWrapper label{
+    width: 100%;
+}
+
+.formWrapper textarea{
+    width:100%;
+    height: 40px;
+    border: 2px solid #000839;
+}
+
+.radioWrapper input, .radioWrapper label{
+    width: 6%
+}
+
+.addNew{
+    border-radius: 5px;
+    border: 0px;
+    padding: 15px 0;
+    background-color: #005082;
+    color: white;
+    font-size: 14pt;
+    margin-top: 20px;
+  }
+  
+  .addNew:hover{
+    background-color:#000839;
+    color: white;
+    cursor: pointer;
+  }
