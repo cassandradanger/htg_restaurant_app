@@ -1,11 +1,3 @@
-.footer {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    background-color: #ffa41b;
-    color: #000839;
-    padding-bottom: 2rem;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-    height: 2.5rem;
-  }
+footer {
+    margin-top: 80px;
+}

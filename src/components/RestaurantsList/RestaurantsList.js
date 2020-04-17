@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Restaurant from '../restaurant/restaurant'
-import './RestaurantsList.css'
+import Button from '../Button/Button';
 
 class RestaurantList extends Component {
-  
-  render() {
-    return (
-        <div className="Container">
-            <center>
-            <p>Here is a list of restaraunts </p>
-            </center>
-            <div className="flex-container">
-            <Restaurant />
-            </div>
-      
-    </div>
+
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_RESTAURANTS'});
   }
