@@ -31,7 +31,7 @@ class AddMenu extends Component {
     let { menuType, menuNote, items } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+        <form onSubmit={this.handleSubmit}>
           {this.props.state.restaurant &&
            <h1>{this.props.state.restaurant[0].name}</h1>
           }
@@ -42,6 +42,7 @@ class AddMenu extends Component {
               name="menuType"
               value={menuType}
               className="menuType"
+              onChange={this.handleChange}
             >
               <option value="Breakfast">Breakfast</option>
               <option value="Brunch">Brunch</option>
@@ -58,6 +59,7 @@ class AddMenu extends Component {
               name="menuNote"
               value={menuNote}
               className="menuNote"
+              onChange={this.handleChange}
             />
           </div>
           <button onClick={this.addItem}>Add new item</button>

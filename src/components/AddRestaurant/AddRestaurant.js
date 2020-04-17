@@ -66,7 +66,6 @@ class AddRestaurant extends Component {
             Thank you. 
           </p>
         <form onSubmit={this.addNewRestaurant}>
-          <h1>Add a restaurant</h1>
           <div>
           <label htmlFor="type">Restaurant Cuisine Type*</label>
             <select id="type" name="type">
