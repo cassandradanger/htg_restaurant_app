@@ -185,7 +185,7 @@ class AddRestaurant extends Component {
              Welcome Note for Customers
             </label>
           </div>
-          <div>
+          {/* <div>
             <textarea
               name="description"
               value={this.state.description}
@@ -194,7 +194,7 @@ class AddRestaurant extends Component {
             <label htmlFor="description">
              Restaurant Description
             </label>
-          </div>
+          </div> */}
           <div className="radioWrapper">
             <div>
               <label htmlFor="delivery">

@@ -10,6 +10,15 @@ class RestaurantView extends Component {
     return (
       <div>
         <Map/>
+        <div className="restaurantInfo">
+          {this.props.state.restaurant[0] &&
+          <>
+            <p>Phone Number: {this.props.state.restaurant[0].phone}</p>
+            <p>Delivery {this.props.state.restaurant[0].delivery ? "Available" : "Not Available"}</p>
+            <p>Pickup {this.props.state.restaurant[0].pickUp ? "Available" : "Not Available"}</p>
+          </>
+          }
+        </div>
         <header className="menuHeader">
           {this.props.state.restaurant[0] ? 
           <>
@@ -20,6 +29,9 @@ class RestaurantView extends Component {
             <p></p>
           }
         </header>
+        {this.props.state.restaurant[0] && 
+          <p className="welcomeNote">{this.props.state.restaurant[0].welcomeNote}</p>
+        }
         <MenuView/>
       </div>
     )
