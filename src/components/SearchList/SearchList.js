@@ -65,14 +65,14 @@ class SearchList extends Component {
               <div className="search-list-column-2">
                 <div className="search-restaurant-card-result">
                   <br />
-                  <img src="https://www.revivalrestaurants.com/img/revival-minneapolis.jpg" alt="Restaurant food image" className="featured-restaurant-img"></img>
+                  <img src="https://www.revivalrestaurants.com/img/revival-minneapolis.jpg" alt="Restaurant food" className="featured-restaurant-img"></img>
                   <h3 id="revival">Revival</h3>
                   <p className="address-one">1321 Henry Street</p>
                   <p className="address-two">Roseville, MN 56575</p>
                   <p className="phone">651-278-9829</p>
                   <br />
                   <strong>
-                    <a href="#" className="link-text">View menu and hours</a>
+                    <a href="/restaurantsList" className="link-text">View menu and hours</a>
                   </strong>
                 </div>
               </div>
