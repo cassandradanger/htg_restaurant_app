@@ -1,24 +1,88 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Button from '../Button/Button';
+import ItemInputs from '../ItemInputs';
 
 class AddMenu extends Component {
+  state = {
+    menuType: '',
+    menuNote: '',
+    items: [{ itemName: '', itemDescription: '', itemPrice: '', itemImageLink: '' }],
+  };
+
+  // addNewMenu = (event) => {
+  //   event.preventDefault();
+  //   console.log(this.props.state)
+  //   if (this.props.state.user.id) {
+  //     this.props.dispatch({
+  //       type: 'ADD_NEW_MENU',
+  //       payload: {
+  //         menuType: this.state.menuType,
+  //         menuNote: this.state.menuNote,
+  //         sections: this.state.sections,
+  //         items: this.state.items,
+  //       }
+  //     })
+  //     this.props.history.push('/addMenu');
+  //   } else {
+  //     this.props.dispatch({ type: 'MENU_INPUT_ERROR' });
+  //   }
+  // } // end add Menu
+
+  handleChange = (e) => {
+    if (["itemName", "itemDescription", "itemPrice", "itemImageLink"].includes(e.target.className)) {
+      let items = [...this.state.items];
+      items[e.target.dataset.id][e.target.className] = e.target.value;
+      this.setState({ items }, () => console.log(this.state.items));
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
+  }
+
+  addItem = (e) => {
+    this.setState((prevState) => ({
+      items: [...prevState.items, { itemName: '', itemDescription: '', itemPrice: '', itemImageLink: '' }]
+    }));
+  }
+
+  handleSubmit = (e) => { e.preventDefault() }
 
   render() {
-    return(
+    let { menuType, menuNote, items } = this.state;
+    return (
       <div>
-          <h1>Add a Menu</h1>
+        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+          <h1>Add a menu</h1>
           <div>
-              form goes here
+            <label htmlFor="menuType">Menu Type:</label>
+            <select id="menuType"
+              name="menuType"
+              value={menuType}
+              className="menuType"
+            >
+              <option value="Breakfast">Breakfast</option>
+              <option value="Brunch">Brunch</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Lunch/Dinner">Lunch/Dinner</option>
+              <option value="Dinner">Dinner</option>
+              <option value="All Day">All Day</option>
+            </select>
           </div>
+          <div>
+            <label htmlFor="menuNote">Note:</label>
+            <textarea
+              type="text"
+              name="menuNote"
+              value={menuNote}
+              className="menuNote"
+            />
+          </div>
+          <button onClick={this.addItem}>Add new item</button>
+          <ItemInputs items={items} />
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  state
-});
+export default AddMenu;
 
-
-export default connect(mapStateToProps)(AddMenu);
