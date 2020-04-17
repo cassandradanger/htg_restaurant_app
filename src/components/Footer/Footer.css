@@ -1,10 +1,9 @@
 .footer {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    text-emphasis-position: 10%;
     background-color: #ffa41b;
     color: #000839;
-    padding-bottom: 2.5rem;
+    padding-bottom: 2rem;
     width: 100%;
     bottom: 0;
     position: absolute;
