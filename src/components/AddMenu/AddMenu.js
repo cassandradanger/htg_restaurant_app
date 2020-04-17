@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ItemInputs from '../ItemInputs';
+import './AddMenu.css';
 
 class AddMenu extends Component {
   state = {
@@ -10,6 +11,7 @@ class AddMenu extends Component {
   };
 
   handleChange = (e) => {
+    console.log('event: ', e);
     if (["itemName", "itemDescription", "itemPrice", "itemImageLink"].includes(e.target.className)) {
       let items = [...this.state.items];
       items[e.target.dataset.id][e.target.className] = e.target.value;
@@ -31,10 +33,10 @@ class AddMenu extends Component {
     let { menuType, menuNote, items } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          {this.props.state.restaurant &&
-           <h1>{this.props.state.restaurant[0].name}</h1>
-          }
+        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+          {/* {this.props.state.restaurant &&
+            <h1>{this.props.state.restaurant[0].name}</h1>
+          } */}
           <h3>Add a menu</h3>
           <div>
             <label htmlFor="menuType">Menu Type:</label>
@@ -71,11 +73,11 @@ class AddMenu extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  state
-});
+// const mapStateToProps = state => ({
+//   state
+// });
 
 
-export default connect(mapStateToProps)(AddMenu);
+export default AddMenu;
 
 
