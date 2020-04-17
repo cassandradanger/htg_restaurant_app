@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ItemInputs from '../ItemInputs';
 import './AddMenu.css';
 
@@ -33,51 +32,47 @@ class AddMenu extends Component {
     let { menuType, menuNote, items } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-          {/* {this.props.state.restaurant &&
-            <h1>{this.props.state.restaurant[0].name}</h1>
-          } */}
-          <h3>Add a menu</h3>
-          <div>
-            <label htmlFor="menuType">Menu Type:</label>
-            <select id="menuType"
-              name="menuType"
-              value={menuType}
-              className="menuType"
-              onChange={this.handleChange}
-            >
-              <option value="Breakfast">Breakfast</option>
-              <option value="Brunch">Brunch</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Lunch/Dinner">Lunch/Dinner</option>
-              <option value="Dinner">Dinner</option>
-              <option value="All Day">All Day</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="menuNote">Note:</label>
-            <textarea
-              type="text"
-              name="menuNote"
-              value={menuNote}
-              className="menuNote"
-              onChange={this.handleChange}
-            />
-          </div>
-          <button onClick={this.addItem}>Add new item</button>
-          <ItemInputs items={items} />
-          <input type="submit" value="Submit" />
-        </form>
+        <header className="menuHeader">
+          <h1>Add Menu</h1>
+          <img alt="fork and spoon logo" src={require("../../assets/images/restaurant_darkblue.png")} />
+        </header>
+
+        <div className="menuWrapper">
+          <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+            <div id="title1">
+              <label htmlFor="menuType">Menu Type:</label>
+              <select id="menuType"
+                name="menuType"
+                value={menuType}
+                className="menuType"
+              >
+                <option value="Breakfast">Breakfast</option>
+                <option value="Brunch">Brunch</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Lunch/Dinner">Lunch/Dinner</option>
+                <option value="Dinner">Dinner</option>
+                <option value="All Day">All Day</option>
+              </select>
+            </div>
+            <div id="title1">
+              <label htmlFor="menuNote">Note:</label>
+              <textarea
+                type="text"
+                name="menuNote"
+                value={menuNote}
+                className="menuNote"
+              />
+            </div>
+            <ItemInputs items={items} />
+            <div class="actionBar">
+              <button id="newButton" className="addNew" onClick={this.addItem}>Add New Item</button>
+              <input className="addNew" type="submit" value="Save Menu" />
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
 }
 
-// const mapStateToProps = state => ({
-//   state
-// });
-
-
 export default AddMenu;
-
-

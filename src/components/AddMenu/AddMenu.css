@@ -1,0 +1,29 @@
+#newButton {
+  background-color: #4CAF50!important;
+}
+
+#title1 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+textarea {
+  width: 100%;
+  height: 55px;
+}
+
+select {
+  width: 20%;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.addNew {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
