@@ -1,3 +1,7 @@
+-- Blow away your DB and start fresh - run these commands, 
+-- create a user, 
+-- then run the inserts, 
+-- then import the menu_item csv file
 
 CREATE TABLE "user"
 (
@@ -47,7 +51,7 @@ CREATE TABLE "menu_section"
 CREATE TABLE "menu_item"
 (
     "id" SERIAL PRIMARY KEY,
-    "section_id" INT REFERENCES "menu_section",
+    "menu_id" INT REFERENCES "menu",
     "name" VARCHAR (200),
     "description" VARCHAR (1000),
     "price" VARCHAR (200),
@@ -77,8 +81,9 @@ CREATE TABLE "restaurant_tags"
 -- After creating a user, you can run this after adding the user_id to it
 
 INSERT INTO "restaurant" ("user_id", "name", "phone")
-VALUES(UserIdHere, 'Pizza Luce', '612-222-2222'), (UserIdHere, 'Galaxy Pizza', '612-222-2222'), (UserIdHere, 'Johns Pizza Cafe', '612-222-2222'),
+VALUES(UserIdHere, 'Lowbrow', '612-222-2222'), (UserIdHere, 'Red Sea', '612-222-2222');
 
-INSERT INTO "restaurant" ("user_id", "name", "phone")
-VALUES(UserIdHere, 'Smashburger', '612-222-2222'), (UserIdHere, 'Burger Jones', '612-222-2222'), (UserIdHere, 'The Burger Place', '612-222-2222');
+INSERT INTO "menu" ("restaurant_id")
+VALUE(1), (2);
 
+-- important menu_item csv file into the menu_item table

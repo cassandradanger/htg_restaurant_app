@@ -4,4 +4,11 @@
     padding: 20px 0;
     background: none;
     margin: 10px 0 ;
+    font-size: 14pt;
+}
+
+.mainBtn:hover{
+    cursor: pointer;
+    color: #005082;
+    font-size: 14pt;
 }

@@ -9,14 +9,30 @@ class RestaurantView extends Component {
   render() {
     return (
       <div>
-        {this.props.state.restaurant[0] ? 
-          <p>{this.props.state.restaurant[0].name}</p>
-          :
-          <p></p>
-        }
-
-        <MenuView/>
         <Map/>
+        <div className="restaurantInfo">
+          {this.props.state.restaurant[0] &&
+          <>
+            <p>Phone Number: {this.props.state.restaurant[0].phone}</p>
+            <p>Delivery {this.props.state.restaurant[0].delivery ? "Available" : "Not Available"}</p>
+            <p>Pickup {this.props.state.restaurant[0].pickUp ? "Available" : "Not Available"}</p>
+          </>
+          }
+        </div>
+        <header className="menuHeader">
+          {this.props.state.restaurant[0] ? 
+          <>
+            <h1>{this.props.state.restaurant[0].name}</h1>
+            <img alt="fork and spoon logo" src={require("../../assets/images/restaurant_darkblue.png")}/>
+          </>
+            :
+            <p></p>
+          }
+        </header>
+        {this.props.state.restaurant[0] && 
+          <p className="welcomeNote">{this.props.state.restaurant[0].welcomeNote}</p>
+        }
+        <MenuView/>
       </div>
     )
   }

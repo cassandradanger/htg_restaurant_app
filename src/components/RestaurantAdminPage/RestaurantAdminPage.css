@@ -1,0 +1,28 @@
+
+.addNewBtn{
+    font-size: 14pt;
+    border-radius: 5px;
+    margin-left: 20px;
+    border: 0px;
+    padding: 20px 25px;
+    background-color: #005082;
+    color: white;
+    min-width: 100px;
+  }
+  
+  .addNewBtn:hover{
+    background-color:#000839;
+    color: white;
+    cursor: pointer;
+  }
+
+  .welcomeUser{
+      margin-left: 20px;
+  }
+
+  .restaurantChoice:hover{
+      cursor: pointer;
+      background-color: #000839;
+      color: white;
+
+  }

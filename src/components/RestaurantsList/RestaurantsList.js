@@ -4,7 +4,6 @@ import Restaurant from '../restaurant/restaurant'
 import './RestaurantsList.css'
 
 class RestaurantList extends Component {
-
   
   render() {
     return (
@@ -17,6 +16,31 @@ class RestaurantList extends Component {
             </div>
       
     </div>
+  componentDidMount () {
+    this.props.dispatch({type: 'FETCH_RESTAURANTS'});
+  }
+
+  chooseRestaurant = (event, id) => {
+    console.log(id);
+    this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: id});
+    this.props.dispatch({ type: 'FETCH_MENUS', payload: id });
+    this.props.history.push('/restaurantView')
+  }
+  render() {
+    return (
+      <div>
+        <div>
+          <div className="buttonWrapper">
+            {this.props.state.restaurant ?
+              this.props.state.restaurant.map((restaurant) => {
+                return <Button chooseRestaurant={this.chooseRestaurant} key={restaurant.id} restaurant={restaurant}></Button>
+              })
+              :
+              <p>no restaurants</p>
+            }
+          </div>
+        </div>
+      </div>
     )
   }
 }
