@@ -1,12 +1,13 @@
 import React from 'react';
+import './MenuItem.css';
 
 
 const MenuItem = props => (
-  <div>
+  <div className="menuItem">
     <h3>
       <span>{props.item.name}</span><span>{props.item.price}</span>
     </h3>
-    <div>{props.item.description}</div>
+    <div className="description">{props.item.description}</div>
   </div>
 );
 

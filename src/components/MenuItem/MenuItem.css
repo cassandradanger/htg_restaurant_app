@@ -1,4 +1,19 @@
+
+body{
+  color: #005082
+}
 h3 {
   display: flex;
   justify-content: space-between;
+}
+.menuItem{
+  margin: 0 auto 28px;
+  width: 80%;
+}
+
+.description{
+  font-style: italic;
+  font-weight: 100;
+  margin-top: -15px;
+  width: 80%;
 }
