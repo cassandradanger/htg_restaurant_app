@@ -8,9 +8,10 @@ class RestaurantList extends Component {
     this.props.dispatch({type: 'FETCH_RESTAURANTS'});
   }
 
-  chooseRestaurant = (event, restaurant) => {
-    console.log(restaurant);
-    this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: restaurant});
+  chooseRestaurant = (event, id) => {
+    console.log(id);
+    this.props.dispatch({type: 'FETCH_CHOSEN_RESTAURANT', payload: id});
+    this.props.dispatch({ type: 'FETCH_MENUS', payload: id });
     this.props.history.push('/restaurantView')
   }
   render() {

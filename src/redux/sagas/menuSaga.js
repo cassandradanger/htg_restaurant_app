@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchMenus() {
+function* fetchMenus(action) {
+  console.log("ACTIONPAYLOAD", action.payload)
   try {
-    const response = yield axios.get('/api/menu');
+    const response = yield axios.get(`/api/menu/${action.payload}`);
     console.log(response);
 
     yield put({ type: 'SET_MENUS', payload: response.data });
