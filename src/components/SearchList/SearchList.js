@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../Button/Button';
+import { HashRouter as Router, withRouter } from 'react-router-dom';
+
 
 class SearchList extends Component {
 
@@ -15,6 +17,7 @@ class SearchList extends Component {
   }
   render() {
     return (
+      <Router>
       <div>
         <div>
           <p>
@@ -31,6 +34,7 @@ class SearchList extends Component {
           </div>
         </div>
       </div>
+      </Router>
     )
   }
 }
@@ -40,4 +44,4 @@ const mapStateToProps = state => ({
   state
 });
 
-export default connect(mapStateToProps)(SearchList);
+export default withRouter(connect(mapStateToProps)(SearchList));
