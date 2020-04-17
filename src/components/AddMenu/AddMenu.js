@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ItemInputs from '../ItemInputs';
 
 class AddMenu extends Component {
@@ -7,25 +8,6 @@ class AddMenu extends Component {
     menuNote: '',
     items: [{ itemName: '', itemDescription: '', itemPrice: '', itemImageLink: '' }],
   };
-
-  // addNewMenu = (event) => {
-  //   event.preventDefault();
-  //   console.log(this.props.state)
-  //   if (this.props.state.user.id) {
-  //     this.props.dispatch({
-  //       type: 'ADD_NEW_MENU',
-  //       payload: {
-  //         menuType: this.state.menuType,
-  //         menuNote: this.state.menuNote,
-  //         sections: this.state.sections,
-  //         items: this.state.items,
-  //       }
-  //     })
-  //     this.props.history.push('/addMenu');
-  //   } else {
-  //     this.props.dispatch({ type: 'MENU_INPUT_ERROR' });
-  //   }
-  // } // end add Menu
 
   handleChange = (e) => {
     if (["itemName", "itemDescription", "itemPrice", "itemImageLink"].includes(e.target.className)) {
@@ -49,14 +31,18 @@ class AddMenu extends Component {
     let { menuType, menuNote, items } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-          <h1>Add a menu</h1>
+        <form onSubmit={this.handleSubmit}>
+          {this.props.state.restaurant &&
+           <h1>{this.props.state.restaurant[0].name}</h1>
+          }
+          <h3>Add a menu</h3>
           <div>
             <label htmlFor="menuType">Menu Type:</label>
             <select id="menuType"
               name="menuType"
               value={menuType}
               className="menuType"
+              onChange={this.handleChange}
             >
               <option value="Breakfast">Breakfast</option>
               <option value="Brunch">Brunch</option>
@@ -73,6 +59,7 @@ class AddMenu extends Component {
               name="menuNote"
               value={menuNote}
               className="menuNote"
+              onChange={this.handleChange}
             />
           </div>
           <button onClick={this.addItem}>Add new item</button>
@@ -84,5 +71,11 @@ class AddMenu extends Component {
   }
 }
 
-export default AddMenu;
+const mapStateToProps = state => ({
+  state
+});
+
+
+export default connect(mapStateToProps)(AddMenu);
+
 

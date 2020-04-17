@@ -82,12 +82,12 @@ router.post('/', (req, res) => {
 
     const sqlQuery = `INSERT INTO "restaurant" ("user_id", "name", "phone", "address", "city", "state", "zipcode", "hours", 
     "link", "welcomeNote", "description", "picture", "delivery", "pickUp")
-    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`;
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"`;
 
     pool.query(sqlQuery, [req.user.id, name, phone, address, city, state, zipcode, hours, link, welcomeNote, description, picture, delivery, pickUp])
     .then((result) => {
-        console.log(result);
-        res.sendStatus(200);
+        console.log("RESULTTTTTTTTT", result);
+        res.send(result.rows);
     })
     .catch((error) => {
         console.log('error', error);
