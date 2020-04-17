@@ -81,10 +81,7 @@ CREATE TABLE "restaurant_tags"
 -- After creating a user, you can run this after adding the user_id to it
 
 INSERT INTO "restaurant" ("user_id", "name", "phone")
-VALUES(UserIdHere, 'Pizza Luce', '612-222-2222'), (UserIdHere, 'Galaxy Pizza', '612-222-2222'), (UserIdHere, 'Johns Pizza Cafe', '612-222-2222');
-
-INSERT INTO "restaurant" ("user_id", "name", "phone")
-VALUES(UserIdHere, 'Smashburger', '612-222-2222'), (UserIdHere, 'Burger Jones', '612-222-2222'), (UserIdHere, 'The Burger Place', '612-222-2222');
+VALUES(UserIdHere, 'Lowbrow', '612-222-2222'), (UserIdHere, 'Red Sea', '612-222-2222');
 
 INSERT INTO "menu" ("restaurant_id")
 VALUE(1), (2);
