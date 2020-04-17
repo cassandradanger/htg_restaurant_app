@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { select, put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchRestaurants() {
   try {
@@ -23,7 +23,7 @@ function* fetchSearchRestaurants() {
   }
 }
 
-function* fetchChosenRestaurant(action){
+function* fetchChosenRestaurant(action) {
   console.log("ACTION PAYLOAD", action.payload);
   try {
     const response = yield axios.get(`/api/restaurant/${action.payload}`);
@@ -48,7 +48,7 @@ function* fetchMyRestaurants() {
 function* addNewRestaurant(action) {
   console.log(action.payload);
   try {
-    const response = yield axios.post('/api/restaurant', {data: action.payload});
+    const response = yield axios.post('/api/restaurant', { data: action.payload });
     console.log(response);
     yield put({ type: 'FETCH_CHOSEN_RESTAURANT', payload: response.data[0].id });
   } catch (error) {

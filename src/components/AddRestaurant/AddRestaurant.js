@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Button from '../Button/Button';
 import './AddRestaurant.css';
 
 
@@ -44,7 +43,7 @@ class AddRestaurant extends Component {
       })
       this.props.history.push('/AddMenu');
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
 
@@ -53,21 +52,21 @@ class AddRestaurant extends Component {
       [propertyName]: event.target.value,
     });
   }
-  
+
 
   render() {
-    return(
+    return (
       <div className="formWrapper">
-          <p>Hi!
-            Thank you for adding your restaurant to our database. 
-            Our goal is to help diners find restaurants and order dishes easily. 
-            We are asking you to provide accurate information. 
-            Please make sure to update the information on your restaurant as soon as there are changes. 
-            Thank you. 
+        <p>Hi!
+        Thank you for adding your restaurant to our database.
+        Our goal is to help diners find restaurants and order dishes easily.
+        We are asking you to provide accurate information.
+        Please make sure to update the information on your restaurant as soon as there are changes.
+        Thank you.
           </p>
         <form onSubmit={this.addNewRestaurant}>
           <div>
-          <label htmlFor="type">Restaurant Cuisine Type*</label>
+            <label htmlFor="type">Restaurant Cuisine Type*</label>
             <select id="type" name="type">
               <option value="American">American</option>
               <option value="Italian">Italian</option>
@@ -105,7 +104,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('address')}
             />
             <label htmlFor="address">
-             Street Address
+              Street Address
             </label>
           </div>
           <div>
@@ -116,7 +115,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('city')}
             />
             <label htmlFor="city">
-             City
+              City
             </label>
           </div>
           <div>
@@ -127,7 +126,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('state')}
             />
             <label htmlFor="state">
-             State
+              State
             </label>
           </div>
           <div>
@@ -138,7 +137,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('zipcode')}
             />
             <label htmlFor="zipcode">
-             Zipcode
+              Zipcode
             </label>
           </div>
           <div>
@@ -149,7 +148,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('hours')}
             />
             <label htmlFor="hours">
-             Hours of Operation
+              Hours of Operation
             </label>
           </div>
           <div>
@@ -160,7 +159,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('link')}
             />
             <label htmlFor="link">
-             Website URL
+              Website URL
             </label>
           </div>
           <div>
@@ -171,7 +170,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('picture')}
             />
             <label htmlFor="picture">
-             Main Image URL
+              Main Image URL
             </label>
           </div>
           <div>
@@ -182,7 +181,7 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('welcomeNote')}
             />
             <label htmlFor="welcomeNote">
-             Welcome Note for Customers
+              Welcome Note for Customers
             </label>
           </div>
           {/* <div>
@@ -192,13 +191,13 @@ class AddRestaurant extends Component {
               onChange={this.handleInputChangeFor('description')}
             />
             <label htmlFor="description">
-             Restaurant Description
+              Restaurant Description
             </label>
           </div> */}
           <div className="radioWrapper">
             <div>
               <label htmlFor="delivery">
-              Delivery Available 
+                Delivery Available
               </label>
               <input
                 type="radio"
@@ -207,7 +206,7 @@ class AddRestaurant extends Component {
                 onChange={this.handleInputChangeFor('delivery')}
               />
               <label htmlFor="delivery">
-                No Delivery 
+                No Delivery
               </label>
               <input
                 type="radio"
@@ -220,7 +219,7 @@ class AddRestaurant extends Component {
           <div className="radioWrapper">
             <div>
               <label htmlFor="pickUp">
-              Pick Up Available 
+                Pick Up Available
               </label>
               <input
                 type="radio"
@@ -229,7 +228,7 @@ class AddRestaurant extends Component {
                 onChange={this.handleInputChangeFor('pickUp')}
               />
               <label htmlFor="pickUp">
-              No Pick Up 
+                No Pick Up
               </label>
               <input
                 type="radio"
