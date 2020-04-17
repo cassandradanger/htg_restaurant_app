@@ -64,7 +64,7 @@ class AddMenu extends Component {
               />
             </div>
             <ItemInputs items={items} />
-            <div class="actionBar">
+            <div className="actionBar">
               <button id="newButton" className="addNew" onClick={this.addItem}>Add New Item</button>
               <input className="addNew" type="submit" value="Save Menu" />
             </div>
