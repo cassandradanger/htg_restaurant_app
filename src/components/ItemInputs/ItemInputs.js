@@ -1,4 +1,5 @@
 import React from 'react';
+import './ItemInputs.css';
 
 const ItemInputs = (props) => {
   return (
@@ -20,33 +21,35 @@ const ItemInputs = (props) => {
             className="itemName"
           />
 
-          <label htmlFor={desId}>Description</label>
-          <input
-            type="text"
-            name={desId}
-            data-id={idx}
-            id={desId}
-            value={props.items[idx].itemDescription}
-            className="itemDescription"
-          />
-          <label htmlFor={priceId}>Price</label>
-          <input
-            type="text"
-            name={priceId}
-            data-id={idx}
-            id={priceId}
-            value={props.items[idx].itemPrice}
-            className="itemPrice"
-          />
-          <label htmlFor={imageId}>Image URL</label>
-          <input
-            type="text"
-            name={imageId}
-            data-id={idx}
-            id={imageId}
-            value={props.items[idx].itemImageLink}
-            className="itemImageLink"
-          />
+          <div className="itemDetails">
+            <label htmlFor={desId}>Description</label>
+            <input
+              type="text"
+              name={desId}
+              data-id={idx}
+              id={desId}
+              value={props.items[idx].itemDescription}
+              className="itemDescription"
+            />
+            <label htmlFor={priceId}>Price</label>
+            <input
+              type="text"
+              name={priceId}
+              data-id={idx}
+              id={priceId}
+              value={props.items[idx].itemPrice}
+              className="itemPrice"
+            />
+            <label htmlFor={imageId}>Image URL</label>
+            <input
+              type="text"
+              name={imageId}
+              data-id={idx}
+              id={imageId}
+              value={props.items[idx].itemImageLink}
+              className="itemImageLink"
+            />
+          </div>
         </div>
       )
     })
