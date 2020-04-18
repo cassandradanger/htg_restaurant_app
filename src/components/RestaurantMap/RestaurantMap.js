@@ -51,7 +51,7 @@ class MapContainer extends Component {
             <div className="mapHomeComponent">
                 <LoadScript
                     id="script-loader"
-                    googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}
+                    googleMapsApiKey="AIzaSyBceh6s7l5bWXJGrcMs3sIxKTs4c7_O4ng"
                     >
                     <GoogleMap
                         className="mainMap"
