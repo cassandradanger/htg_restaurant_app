@@ -27,35 +27,35 @@ class SearchList extends Component {
               <div className="search-list-column-1">
                 <div className="search-restaurant-cards">
                   <br />
-                  <h3>Sechuan Lilypad</h3>
+                  <p className="header">Sechuan Lilypad</p>
                   <p className="address-one">1321 Henry Street</p>
                   <p className="address-two">Roseville, MN 56575</p>
                   <p className="phone">651-278-9829</p>
                 </div>
                 <div className="search-restaurant-cards">
                   <br />
-                  <h3>Lotus Flower</h3>
+                  <p className="header">Lotus Flower</p>
                   <p className="address-one">1321 Cherry Blossom Rd</p>
                   <p className="address-two">New Brighton, MN 87899</p>
                   <p className="phone">652-987-3847</p>
                 </div>
                 <div className="search-restaurant-cards">
                   <br />
-                  <h3>Old Shanghai</h3>
+                  <p className="header">Old Shanghai</p>
                   <p className="address-one">1321 Cherry Blossom Rd</p>
                   <p className="address-two">New Brighton, MN 87899</p>
                   <p className="phone">652-987-3847</p>
                 </div>
                 <div className="search-restaurant-cards">
                   <br />
-                  <h3>Demera</h3>
+                  <p className="header">Demera</p>
                   <p className="address-one">1321 Cherry Blossom Rd</p>
                   <p className="address-two">New Brighton, MN 87899</p>
                   <p className="phone">652-987-3847</p>
                 </div>
                 <div className="search-restaurant-cards">
                   <br />
-                  <h3>Old Chicago</h3>
+                  <p className="header">Old Chicago</p>
                   <p className="address-one">1321 Cherry Blossom Rd</p>
                   <p className="address-two">New Brighton, MN 87899</p>
                   <p className="phone">652-987-3847</p>
