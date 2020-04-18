@@ -16,6 +16,7 @@ class RestaurantView extends Component {
             <p>Phone Number: {this.props.state.restaurant[0].phone}</p>
             <p>Delivery {this.props.state.restaurant[0].delivery ? "Available" : "Not Available"}</p>
             <p>Pickup {this.props.state.restaurant[0].pickUp ? "Available" : "Not Available"}</p>
+          {this.props.state.restaurant[0].link ? <a href={this.props.state.restaurant[0].link}>our website</a> : <></> }
           </>
           }
         </div>
