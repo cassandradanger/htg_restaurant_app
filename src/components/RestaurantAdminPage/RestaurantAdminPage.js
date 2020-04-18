@@ -30,7 +30,7 @@ class RestaurantAdminPage extends Component {
     return(
       <div>
         <h1 className="welcomeUser">
-          Hello, { this.props.state.user.username }!
+          Hello, Restaurant Owner!
         </h1>
         <button className="addNewBtn" onClick={this.addNewRestaurant}>Add New Restaurant</button>
         <div className="buttonWrapper">

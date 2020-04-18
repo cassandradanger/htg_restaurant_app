@@ -26,7 +26,10 @@ class AddMenu extends Component {
     }));
   }
 
-  handleSubmit = (e) => { e.preventDefault() }
+  handleSubmit = (e) => { 
+    // e.preventDefault();
+    this.props.history.push('/restaurantAdmin')
+  }
 
   render() {
     let { menuType, menuNote, items } = this.state;
@@ -66,7 +69,7 @@ class AddMenu extends Component {
             <ItemInputs items={items} />
             <div className="actionBar">
               <button id="newButton" className="addNew" onClick={this.addItem}>Add New Item</button>
-              <input className="addNew" type="submit" value="Save Menu" />
+              <button className="addNew" onClick={this.handleSubmit}>Save Menu</button>
             </div>
           </form>
         </div>

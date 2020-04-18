@@ -30,7 +30,9 @@ CREATE TABLE "restaurant"
     "welcomeNote" VARCHAR,
     "city" VARCHAR,
     "state" VARCHAR,
-    "zipcode" INTEGER
+    "zipcode" INTEGER,
+    "latitude" NUMERIC,
+    "longitude" NUMERIC,
 );
 
 CREATE TABLE "menu"
