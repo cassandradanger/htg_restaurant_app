@@ -54,6 +54,10 @@
     font-size: 15pt;
 }
 
+.header {
+    font-weight: 5px;
+}
+
 .featured-restaurant-img {
     width: 450px;
     border: 2px double rgb(219, 217, 230);
